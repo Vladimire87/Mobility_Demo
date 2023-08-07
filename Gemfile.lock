@@ -102,6 +102,9 @@ GEM
     method_source (1.0.0)
     mini_mime (1.1.2)
     minitest (5.19.0)
+    mobility (1.2.9)
+      i18n (>= 0.6.10, < 2)
+      request_store (~> 1.0)
     msgpack (1.7.2)
     net-imap (0.3.7)
       date
@@ -152,6 +155,8 @@ GEM
     rake (13.0.6)
     reline (0.3.7)
       io-console (~> 0.5)
+    request_store (1.5.1)
+      rack (>= 1.4)
     sprockets (4.2.0)
       concurrent-ruby (~> 1.0)
       rack (>= 2.2.4, < 4)
@@ -188,6 +193,7 @@ DEPENDENCIES
   debug
   importmap-rails
   jbuilder
+  mobility
   puma (~> 5.0)
   rails (~> 7.0.6)
   sprockets-rails
