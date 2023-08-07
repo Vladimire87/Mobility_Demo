@@ -1,11 +1,11 @@
 module Locale
-  extend ApplicationRecord::Concern
+  extend ActiveSupport::Concern
 
   private
 
   def extract_locale(attr = :locale)
     parsed_locale = params[attr]
-    I18n.available_locales.map(&:to_s).include(parsed_locale) ? parsed_locale : nil
+    I18n.available_locales.map(&:to_s).include?(parsed_locale) ? parsed_locale : nil
   end
 
   included do
