@@ -1,0 +1,14 @@
+<style>
+  .d-flex{
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 35px;
+  }
+</style>
+<nav >
+  <ul class="d-flex">
+    <li><%= link_to t('main_menu.superheroes'), superheroes_path %></li>
+    <li><%= link_to t('main_menu.add_superhero'), new_superhero_path %></li>
+  </ul>
+</nav>
+<hr>
