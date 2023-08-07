@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
-  resources :superheroes
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
-  # root "articles#index"
+  scope "(locale)", locale: /#{I18n.available_locales.join("|")}/ do
+    resources :superheroes
+    root "superheroes#index"
+  end
 end
