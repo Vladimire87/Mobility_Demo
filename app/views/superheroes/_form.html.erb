@@ -1,6 +1,6 @@
 <%= form_with(model: superhero) do |form| %>
   <% if superhero.errors.any? %>
-    <div style="color: red">
+    <div id="error_explanation">
       <ul>
         <% superhero.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -8,15 +8,20 @@
       </ul>
     </div>
   <% end %>
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
-  </div>
-  <div>
-    <%= form.label :description, style: "display: block" %>
-    <%= form.text_area :description %>
-  </div>
-  <div>
-    <%= form.submit t('global.action.submit') %>
+  <% all_locales.each do |locale| %>
+    <div class="field">
+      <% name = "name_#{Mobility.normalize_locale(locale)}" %>
+      <%= form.label name %>
+      <%= form.text_field name %>
+    </div>
+    <div class="field">
+      <% description = "description_#{Mobility.normalize_locale(locale)}" %>
+      <%= form.label description %>
+      <%= form.text_area description %>
+    </div>
+    <hr>
+  <% end %>
+  <div class="actions">
+    <%= form.submit t('global.actions.submit') %>
   </div>
 <% end %>

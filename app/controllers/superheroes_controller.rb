@@ -25,7 +25,7 @@ class SuperheroesController < ApplicationController
 
     respond_to do |format|
       if @superhero.save
-        format.html { redirect_to superhero_url(@superhero), notice: t(".success") }
+        format.html { redirect_to superhero_path, notice: t(".success") }
         format.json { render :show, status: :created, location: @superhero }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -66,6 +66,8 @@ class SuperheroesController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def superhero_params
-    params.require(:superhero).permit(:name, :description)
+    params.require(:superhero).permit(I18n.available_locales.map do |l|
+      [:"name_#{Mobility.normalize_locale(l)}", :"description_#{Mobility.normalize_locale(l)}"]
+    end.flatten)
   end
 end
