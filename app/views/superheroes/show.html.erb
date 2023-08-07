@@ -1,10 +1,7 @@
 <p style="color: green"><%= notice %></p>
-
-<%= render @superhero %>
-
-<div>
-  <%= link_to "Edit this superhero", edit_superhero_path(@superhero) %> |
-  <%= link_to "Back to superheroes", superheroes_path %>
-
-  <%= button_to "Destroy this superhero", @superhero, method: :delete %>
-</div>
+<h1>
+  <%= @superhero.name %>
+</h1>
+<p>
+  <%= @superhero.description%>
+</p>
